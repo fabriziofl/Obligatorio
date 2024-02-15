@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obligatorio - Programación 1</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <div id="contenedor">
+        <div id="cabezal" class="clearfix">
+            <img id="logo" src="https://p1.develotion.com/2023_03/logo.jpg" alt="logo">
+            <p id="mensajeBienvenida"></p>
+            <ul id="navPrincipal">
+                <div id="botonesPreInicio">
+                    <li id="btnSeccionPrincipal" class="btn">
+                        <a> CENSO 2023 </a>
+                    </li>
+                    <li id="btnSeccionIniciarSesion" class="btn">
+                        <a>Iniciar Sesión</a>
+                    </li>
+                    <li id="btnSeccionRegistro" class="btn">
+                        <a> Registrarse </a>
+                    </li>
+                    <li id="btnSeccionInvitado" class="btn">
+                        <a> Perfil Invitado </a>
+                    </li>
+                </div>
+                <li id="btnCerrarSesion" class="btn">
+                    <a> Cerrar Sesión </a>
+                </li>
+                <li id="btnSeccionCensistaRegistrado" class="btn">
+                    <a> Atras </a>
+                </li>
+            </ul>
+        </div><!-- FIN CABEZAL -->
+
+        <div id="contenido">
+
+            <div id="seccionRegistro" class="seccion">
+                <h3>Complete su registro: </h3>
+
+                <label for="txtNombreCensista">Nombre:</label>
+                <input type="text" id="txtNombreCensista" required><br><br>
+
+                <label for="txtUsuario">Nombre de usuario:</label>
+                <input type="text" id="txtUsuario" required><br><br>
+
+                <label for="txtContrasenaRegistro">Contraseña:</label>
+                <input type="password" id="txtContrasenaRegistro"><br><br>
+
+                <input type="button" value="Registrarse" id="btnRegistrarCensista">
+
+                <p id="mensajesRegistro"></p>
+            </div>
+
+            <div id="seccionCensistaRegistrado" class="seccion">
+                <h3>Acciones permitidas</h3>
+                <ul>
+                    <li id="btnCompletarCenso" class="btn">
+                        <a> Completar Censo </a>
+                    </li>
+                    <li id="btnConsultarCenso" class="btn">
+                        <a> Consultar Censos Prevalidados </a>
+                    </li>
+                    <li id="btnReasignarCensista" class="btn">
+                        <a> Reasignar Censista </a>
+                    </li>
+                    <li id="btnEstadisticasCensados" class="btn">
+                        <a> Estadisticas Censados </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="completarCenso" class="seccion">
+                <label for="txtNombreCensado">Nombre:</label>
+                <input type="text" id="txtNombreCensado" name="nombre" required><br><br>
+
+                <label for="txtEdadCensado">Edad:</label>
+                <input type="number" id="txtEdadCensado" name="edad" required><br><br>
+
+                <label for="txtCedulaCensado">Cédula:</label>
+                <input type="text" id="txtCedulaCensado" name="cedula" required><br><br>
+
+                <label for="txtDeptoCensado">Departamento:</label>
+                <select id="txtDeptoCensado" name="departamento" required>
+                    <option value="" selected disabled>Seleccione...</option>
+                </select><br><br>
+
+                <label for="txtOcupaCensado">Ocupación:</label>
+                <select id="txtOcupaCensado" name="ocupacion" required>
+                    <option value="" selected disabled>Seleccione...</option>
+                    <option value="dependiente">Dependiente</option>
+                    <option value="independiente">Independiente</option>
+                    <option value="estudiante">Estudiante</option>
+                    <option value="no-trabaja">No trabaja</option>
+                </select><br><br>
+
+                <input type="button" id="btnRegistrarCensado" value="Agregar"><br>
+                <p id="mensajesRegistroCensado1"></p>
+            </div>
+
+            <div id="estadisticasCensados" class="seccion">
+                <h3>Estadisticas: </h3>
+                <hr>
+                <p id="txtEstadisticasCensados"></p>
+                <hr>
+                <p id="txtCensadosPorDepto"></p>
+                <hr>
+                <p id="txtPorcentajePendientes"></p>
+                <hr>
+                <label for="txtDeptoCensado3">Departamento:</label>
+                <select id="txtDeptoCensado3" name="departamento2" required>
+                    <option value="" selected disabled>Seleccione...</option>
+                </select><br><br>
+                <!-- SE DEBE HACER CLICK EN EL BOTON PARA ACTUALIZAR INFORMACION -->
+                <input type="button" id="txtChequeoDepto" value="Ver información">
+                <p id="porcentajeEdadDepartamentoMayores"></p>
+                <p id="porcentajeEdadDepartamentoMenores"></p>
+            </div>
+
+            <div id="consultarCenso" class="seccion">
+                <p>Para chequear si el censo fue pre completado ingresa la cedula y haz click en el boton Chequear</p>
+                <input type="text" id="txtCedulaCensado2" placeholder="44179123" required>
+                <input type="button" id="btnBuscarPreCensado" value="Chequear"><br>
+                <br>
+                <p id="mensajeChequeo"></p>
+                <br>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Edad</th>
+                            <th>Cedula</th>
+                            <th>Departamento</th>
+                            <th>Ocupacion</th>
+                            <th>Accion</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tblPreCensados"></tbody>
+                </table>
+                <p id="mensajeConfirmacion"></p>
+            </div>
+
+            <div id="reasignarCensista" class="seccion">
+                <p> Puedes reasignar personas para validar: </p>
+                <select id="txtUsuariosParaCensar" required>
+                    <option value="" selected disabled>Seleccione...</option>
+                </select><br><br>
+                <select id="txtCensistasDisponibles" required>
+                    <option value="" selected disabled>Seleccione...</option>
+                </select><br>
+                <br>
+                <input type="button" id="btnModificarIdCensista" value="Reasignar Censista">
+                <p id="mensajeReasignarCensista"></p>
+            </div>
+
+            <div id="seccionInvitado" class="seccion">
+                <h3>Acciones permitidas</h3>
+                <ul>
+                    <li id="btnSeccionDatosCensado" class="btn">
+                        <a> Pre completar datos censo </a>
+                    </li>
+                    <li id="btnSeccionListarCensados" class="btn">
+                        <a> Estadisticas para Invitados </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="seccionDatosCensado" class="seccion">
+                <p>Para chequear si tus datos estan en nuestro sistema, ingresa tu cedula en el siguiente campo y
+                    presiona el boton Buscar:</p>
+                <input type="text" id="txtCedulaCensado3" placeholder="44179123" required>
+                <input type="button" id="btnBuscarCensado" value="Buscar"><br>
+                <p id="mensajesRegistroCensado"></p>
+                <div id="seccionDatosPreCenso">
+
+                    <label for="txtNombrePreCensado">Nombre:</label>
+                    <input type="text" id="txtNombrePreCensado" name="nombre" required><br><br>
+
+                    <label for="txtEdadPreCensado">Edad:</label>
+                    <input type="number" id="txtEdadPreCensado" name="edad" required><br><br>
+
+                    <label for="txtCedulaPreCensado">Cédula:</label>
+                    <input type="number" id="txtCedulaPreCensado" name="cedula" required><br><br>
+
+                    <label for="txtDeptoCensado2">Departamento:</label>
+                    <select id="txtDeptoCensado2" name="departamento2" required>
+                        <option value="" selected disabled>Seleccione...</option>
+                    </select><br><br>
+
+                    <label for="txtOcupaPreCensado">Ocupación:</label>
+                    <select id="txtOcupaPreCensado" name="ocupacion" required>
+                        <option value="" selected disabled>Seleccione...</option>
+                        <option value="dependiente">Dependiente</option>
+                        <option value="independiente">Independiente</option>
+                        <option value="estudiante">Estudiante</option>
+                        <option value="no-trabaja">No trabaja</option>
+                    </select><br><br>
+
+                    <p id="mensajesRegistroPreCensado"></p>
+
+                    <input type="button" id="btnRegistrarPreCensado" value="Pre Completar">
+                    <input type="button" id="btModificarPreCensado" value="Modificar Datos"><br><br>
+                    <input type="button" id="btnEliminarDatosPreCensado" value="Eliminar Datos"><br>
+                </div>
+            </div>
+
+            <div id="seccionListarCensados" class="seccion">
+                <h3>Lista censados</h3>
+                <table>
+                    <thead>
+                    </thead>
+                    <tbody id="tblCensados2"></tbody>
+                </table>
+            </div>
+
+            <div id="seccionIniciarSesion" class="seccion">
+                <h3>Iniciar Sesión</h3>
+                <label for="txtUsuarioIniciarSesion">Usuario:</label>
+                <input type="text" id="txtUsuarioIniciarSesion"><br><br>
+                <label for="txtContrasena">Contraseña:</label>
+                <input type="password" id="txtContrasena"><br><br>
+                <input type="button" value="Iniciar sesión" id="btnIniciarSesion"><br><br>
+                <p id="mensajeIniciarSesion"></p>
+            </div>
+
+            <div class="interior">
+                <div id="seccionPrincipal" class="seccion">
+                    <img src="https://p1.develotion.com/2023_03/foto1.webp" alt="imagen">
+                    <p>
+                        Bienvenido a nuestra aplicación de censo en Uruguay.<br>
+                        <br>
+                        Nuestro objetivo es recopilar información demográfica y estadística para contribuir al
+                        desarrollo y planificación de nuestro país.<br>
+                        <br>
+                        Mediante esta aplicación, podrás participar en el censo proporcionando información precisa y
+                        actualizada. Tu colaboración es fundamental para obtener datos confiables que nos ayudarán a
+                        comprender mejor la realidad de Uruguay y tomar decisiones informadas.<br>
+                        <br>
+                        Garantizamos la confidencialidad de la información que nos proporcionas, cumpliendo con las
+                        leyes de protección de datos vigentes en Uruguay.<br>
+                        <br>
+                        Explora las diferentes secciones de la aplicación para registrar los datos necesarios.
+                        Agradecemos tu participación y contribución a través de esta app de censo. Juntos, podemos
+                        construir un futuro mejor para todos los uruguayos.
+                    </p>
+                </div>
+            </div>
+            <!--FIN ELEMENTOS-->
+        </div><!-- FIN CONTENIDO -->
+        <div id="pie">
+            <a href="https://www.ort.edu.uy">Universidad ORT - Programación 1</a><br><br>
+            <p style="color: white">Mateo Rodriguez - 192391 & Fabrizio Ferranty - 307494</p>
+        </div><!-- FIN PIE -->
+    </div><!-- FIN CONTENEDOR -->
+    <script src="js/codigo.js"></script>
+    <script src="js/funciones.js"></script>
+    <script src="js/pantallas.js"></script>
+</body>
+</html>
